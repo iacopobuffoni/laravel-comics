@@ -1,33 +1,63 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel 9 + Bootstrap Template</title>
+@section('content')
+<main>
+    <div class="jumbotron">
 
-        {{-- Includiamo gli assets con la direttiva @vite --}}
-        @vite('resources/js/app.js')
-    </head>
-    <body>
-
-        <main>
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="{{ Vite::asset('resources/img/laravel.png') }}" alt="">
-
-                                <h1 class="card-title">Laravel 9 + Bootstrap Template</h1>
-                            </div>
-                        </div>
-
-                    </div>
+    </div>
+    <div class="product-back">
+        <div class="product-box">
+            @foreach ($comics as $comic)
+            <div class="card">
+                <img src="{{ $comic['thumb'] }}" alt="">
+                <h4> {{ $comic['title'] }} </h4>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <footer>
+        <div class="main-footer-bar">
+            <div class="main-footer-bar-item">
+                <div class="logo">
+                    <img src="../assets/img/buy-comics-digital-comics.png" alt="">
+                </div>
+                <div class="text">
+                    DIGITAL COMICS
                 </div>
             </div>
-        </main>
-
-    </body>
-</html>
+            <div class="main-footer-bar-item">
+                <div class="logo">
+                    <img src="../assets/img/buy-comics-merchandise.png" alt="">
+                </div>
+                <div class="text">
+                    DC MERCHANDISE
+                </div>
+            </div>
+            <div class="main-footer-bar-item">
+                <div class="logo">
+                    <img src="../assets/img/buy-comics-subscriptions.png" alt="">
+                </div>
+                <div class="text">
+                    SUBSCRIPTION
+                </div>
+            </div>
+            <div class="main-footer-bar-item">
+                <div class="logo">
+                    <img src="../assets/img/buy-comics-shop-locator.png" alt="">
+                </div>
+                <div class="text">
+                    COMIC SHOP LOCATOR
+                </div>
+            </div>
+            <div class="main-footer-bar-item">
+                <div class="logo">
+                    <img src="../assets/img/buy-dc-power-visa.svg" alt="">
+                </div>
+                <div class="text">
+                    DC POWER VISA
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>
+@endsection
